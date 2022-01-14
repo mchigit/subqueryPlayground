@@ -11,7 +11,7 @@ network:
   dictionary: https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary
 dataSources:
   - kind: substrate/Moonbeam
-    startBlock: 752073
+    startBlock: 1
     processor:
       file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
       options:

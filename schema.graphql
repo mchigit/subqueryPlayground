@@ -1,14 +1,25 @@
-type StarterEntity @entity {
+type Transaction @entity {
 
-  id: ID! #id is a required field
+  id: ID! # Transaction hash
 
-  field1: Int!
+  value: BigInt!
 
-  field2: String #filed2 is an optional field
+  to: String!
 
-  field3: BigInt
+  from: String!
 
-  field4: Date
+  contractAddress: String!
+}
 
-  field5: Boolean
+
+type Approval @entity {
+  id: ID! # Transaction hash
+
+  value: BigInt!
+
+  owner: String!
+
+  spender: String!
+
+  contractAddress: String!
 }

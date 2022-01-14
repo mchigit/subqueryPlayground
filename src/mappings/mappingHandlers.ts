@@ -1,6 +1,6 @@
-import { MoonbeamEvent } from '@subql/contract-processors/dist/moonbeam';
-import {StarterEntity} from "../types";
-import {Balance} from "@polkadot/types/interfaces";
+import {Transaction} from "../types";
+import { MoonbeamEvent, MoonbeamCall } from '@subql/contract-processors/dist/moonbeam';
+import { BigNumber } from "ethers";
 
 
 // export async function handleBlock(block: SubstrateBlock): Promise<void> {
@@ -14,6 +14,15 @@ import {Balance} from "@polkadot/types/interfaces";
 export async function handleMoonbeamEvent(event: MoonbeamEvent): Promise<void> {
     logger.info("got event")
     logger.info(event)
+
+    const transaction = new Transaction(event.transactionHash);
+
+    transaction.value = event.args.value.toBigInt();
+    transaction.from = event.args.from;
+    transaction.to = event.args.to;
+    transaction.contractAddress = event.address;
+
+    await transaction.save();
 }
 
 // export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
