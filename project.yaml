@@ -18,7 +18,7 @@ dataSources:
         # Must be a key of assets
         abi: zoombiesMarket
         ## The contract that emitted the event
-        address: '0x6bd193ee6d2104f14f94e2ca6efefae561a4334b'
+        address: '0x8bd5180Ccdd7AE4aF832c8C03e21Ce8484A128d4'
     assets:
       zoombiesMarket:
         file: './erc20.abi.json'
