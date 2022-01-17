@@ -14,7 +14,7 @@ network:
 
 dataSources:
   - kind: substrate/Moonbeam
-    startBlock: 752073
+    startBlock: 442090
     processor:
       file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
