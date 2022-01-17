@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@subql/contract-processors": "^0.4.0",
-    "@subql/types": "latest"
+    "@subql/types": "latest",
+    "ethers": "^5.5.3"
   }
 }
