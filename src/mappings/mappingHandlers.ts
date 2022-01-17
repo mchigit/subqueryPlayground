@@ -1,7 +1,8 @@
-import {Transaction} from "../types";
-import { MoonbeamEvent, MoonbeamCall } from '@subql/contract-processors/dist/moonbeam';
-import { BigNumber } from "ethers";
-
+import { Transaction } from "../types";
+import {
+  MoonbeamEvent,
+  MoonbeamCall,
+} from "@subql/contract-processors/dist/moonbeam";
 
 // export async function handleBlock(block: SubstrateBlock): Promise<void> {
 //     //Create a new starterEntity with ID using block hash
@@ -12,17 +13,17 @@ import { BigNumber } from "ethers";
 // }
 
 export async function handleMoonbeamEvent(event: MoonbeamEvent): Promise<void> {
-    logger.info("got event")
-    logger.info(event)
+  logger.info("got event");
+  logger.info(event);
 
-    const transaction = new Transaction(event.transactionHash);
+  const transaction = new Transaction(event.transactionHash);
 
-    transaction.value = event.args.value.toBigInt();
-    transaction.from = event.args.from;
-    transaction.to = event.args.to;
-    transaction.contractAddress = event.address;
+  transaction.value = event.args.value.toBigInt();
+  transaction.from = event.args.from;
+  transaction.to = event.args.to;
+  transaction.contractAddress = event.address;
 
-    await transaction.save();
+  await transaction.save();
 }
 
 // export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
@@ -33,5 +34,3 @@ export async function handleMoonbeamEvent(event: MoonbeamEvent): Promise<void> {
 //     record.field5 = true;
 //     await record.save();
 // }
-
-

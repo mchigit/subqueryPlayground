@@ -1,29 +1,29 @@
 specVersion: 0.2.0
 name: subQLPlayground
 version: 1.0.0
-description: ''
-repository: ''
+description: ""
+repository: ""
 schema:
   file: ./schema.graphql
 network:
-  genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527' # Genesis hash of Moonriver
-  endpoint: wss://moonbeam-alpha.api.onfinality.io/public-ws
-  dictionary: https://api.subquery.network/sq/subquery/moonbase-alpha-dictionary
+  genesisHash: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b" # Genesis hash of Moonriver
+  endpoint: wss://moonriver.api.onfinality.io/public-ws
+  dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
 dataSources:
   - kind: substrate/Moonbeam
-    startBlock: 1
+    startBlock: 752073
     processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
+      file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         # Must be a key of assets
-        abi: zoombiesMarket
+        abi: zoomToken
         ## The contract that emitted the event
-        address: '0x8bd5180Ccdd7AE4aF832c8C03e21Ce8484A128d4'
+        address: "0x8e21404bAd3A1d2327cc6D2B2118f47911a1f316"
     assets:
-      zoombiesMarket:
-        file: './erc20.abi.json'
+      zoomToken:
+        file: "./zoomToken.abi.json"
     mapping:
-      file: './dist/index.js'
+      file: "./dist/index.js"
       handlers:
         - handler: handleMoonbeamEvent
           kind: substrate/MoonbeamEvent
@@ -33,4 +33,3 @@ dataSources:
               - null
               - null
               - null
-
