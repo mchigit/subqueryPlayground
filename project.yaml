@@ -12,18 +12,18 @@ network:
   genesisHash: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b" # Genesis hash of Moonriver
   endpoint: wss://moonriver.api.onfinality.io/public-ws
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
+  # dictionary: "https://api.subquery.network/sq/subquery/moonriver-dictionary"
 
 dataSources:
   - kind: substrate/Moonbeam
-    startBlock: 752073
+    startBlock: 1
     processor:
       file: "./node_modules/@subql/contract-processors/dist/moonbeam.js"
       options:
         # Must be a key of assets
         abi: zoomToken
         ## The contract that emitted the event
-        address: "0x8e21404bAd3A1d2327cc6D2B2118f47911a1f316"
+        address: "0x8bd5180Ccdd7AE4aF832c8C03e21Ce8484A128d4"
     assets:
       zoomToken:
         file: "./zoomToken.abi.json"
